@@ -1,0 +1,1330 @@
+/* إعدادات عامة */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html{
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Cairo', sans-serif;
+}
+
+/* ========== الهيدر ========== */
+.header {
+  width: 100%;
+  background-color: #fff3f3;
+  border-bottom: 2px solid #f7c8d0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all 0.4s ease;
+}
+
+/* الحاوية داخل الهيدر */
+.header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 25px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: padding 0.4s ease;
+
+}
+
+.header.shrink {
+    background-color: #ffffff;
+    border-bottom: 1px solid #f2f2f2;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: fixed;
+    top: 15px;                 /* 👈 يبعد الهيدر شوي عن الأعلى */
+    left: 50%;                 /* 👈 لتوسيطه */
+    transform: translateX(-50%); /* 👈 يثبته بالمنتصف بدقة */
+    width: calc(100% - 40px);  /* 👈 يخليه يبعد عن الحواف اليمين واليسار */
+    border-radius: 20px;       /* 👈 زوايا ناعمة بعد الانفصال */
+    transition: all 0.4s ease; /* 👈 حركة ناعمة للتحوّل */
+    z-index: 999;
+  }
+  
+  .header.shrink .container {
+    padding: 10px 25px;
+  }
+
+.header.shrink .logo {
+  font-size: 1.2rem;
+  transition: font-size 0.3s ease;
+}
+
+/* الشعار */
+.logo {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #d45b78;
+}
+
+.logo span {
+  color: #ff80a5;
+}
+
+  
+/* القائمة */
+.nav ul {
+  list-style: none;
+  display: flex;
+  flex-direction: row;
+
+  gap: 25px;
+}
+
+.nav ul li a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+.nav ul li a:hover {
+  color: #d45b78;
+}
+
+/* زر الساندويش */
+.menu-toggle {
+  font-size: 1.8rem;
+  color: #d45b78;
+  cursor: pointer;
+  display: none;
+}
+
+/* ========== Hero Section (عام) ========== */
+.hero {
+    position: relative;
+    background: linear-gradient(135deg, #fff3f5, #ffeef2, #fff6f8);
+    background-size: 200% 200%;
+    animation: lightMove 8s ease-in-out infinite alternate;
+    padding: 8% 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 90vh;
+    font-family: 'Cairo', sans-serif;
+    overflow: hidden;
+  }
+  
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: url('ظل.png');
+    background-repeat: no-repeat;     /* 🚫 منع التكرار */
+    background-position: center;      /* 🎯 توسيط الصورة */
+    background-size: cover;           /* 🧩 تغطي المساحة بالكامل */
+    opacity: 0.1;
+    animation: shadowMove 12s ease-in-out infinite alternate;
+    pointer-events: none;
+  }
+  
+  @keyframes lightMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 100% 100%; }
+  }
+  
+  @keyframes shadowMove {
+    0% { background-position: 0% 0%; }
+    100% { background-position: 10% 10%; }
+  }
+  
+.hero-content {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1400px;
+  width: 100%;
+  font-family: 'Cairo', sans-serif;
+
+  text-align: right;
+}
+
+/* نص الهيرو */
+.hero-text {
+  flex: 1;
+  text-align: right;
+  direction: rtl;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.hero-text h1 {
+  font-size: 65px;
+  color: #d45b78;
+  margin-bottom: 15px;
+  line-height: 1.4;
+  
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.hero-text h1 span {
+  color: #ff80a5;
+  font-weight: bold;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.hero-text p {
+  font-size: 22px;
+  color: #555;
+  margin-bottom: 25px;
+  line-height: 1.8;
+  font-family: 'Cairo', sans-serif;
+
+}
+
+.cta-btn {
+  background-color: #d45b78;
+  color: white;
+  padding: 12px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.3s ease;
+}
+
+.cta-btn:hover {
+  background-color: #b84865;
+}
+
+/* صورة الهيرو */
+.hero-image {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-image img {
+  width: 400px;
+}
+
+
+/* ========== سكشن المشكلة والحل ========== */
+.problem-solution {
+    background-color: #fff9fa;
+    padding: 80px 20px;
+    font-family: 'Cairo', sans-serif;
+  }
+  
+  .ps-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+    flex-wrap: wrap;
+  }
+  
+  /* الصور */
+  .ps-images {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+  }
+  
+  .ps-images img {
+    width: 90%;
+    max-width: 400px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease;
+  }
+  
+  .ps-images img:hover {
+    transform: scale(1.03);
+  }
+  
+  /* النص */
+  .ps-text {
+    flex: 1;
+    color: #333;
+    direction: rtl;
+  }
+  
+  .ps-text h2 {
+    color: #d45b78;
+    font-size: 65px;
+    margin-bottom: 20px;
+  }
+  .ps-text h2 span {
+    color: #ff80a5;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+  
+  }
+  .ps-text p span {
+    color: #d45b78;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+  
+  }
+  
+  .ps-text p {
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 22px;
+  }
+  
+  .ps-text h3 {
+    color: #ff80a5;
+    margin-top: 25px;
+    margin-bottom: 10px;
+  }
+  
+  .ps-text ul {
+    list-style: "🌸 ";
+    padding-right: 20px;
+    margin-bottom: 25px;
+  }
+  
+  .ps-text li {
+    margin-bottom: 10px;
+    color: #555;
+    font-size: 20px;
+
+  }
+  
+  .ps-btn {
+    background-color: #d45b78;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+  }
+  
+  .ps-btn:hover {
+    background-color: #b84865;
+  }
+  
+  /* ========== سكشن شو رح تتعلمي فعليًا ========== */
+.benefits {
+    background-color: #fff3f5;
+    padding: 80px 20px;
+    font-family: 'Cairo', sans-serif;
+    text-align: center;
+    direction: rtl;
+  }
+  
+  .benefits-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  
+  .benefits h2 {
+    font-size:65px;
+    color: #d45b78;
+    margin-bottom: 15px;
+  }
+  
+  .benefits h2 span {
+    color: #ff80a5;
+  }
+  
+  .benefits .intro {
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    font-size: 22px;
+  }
+  
+  /* العناصر */
+  .benefit-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-align: right;
+    direction: rtl;
+  }
+  
+  .benefit-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 12px rgba(0,0,0,0.08);
+  }
+  
+  .benefit-item .num {
+    background-color: #d45b78;
+    color: white;
+    font-weight: bold;
+    font-size: 1.2rem;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  
+  .benefit-item h3 {
+    color: #d45b78;
+    margin-bottom: 8px;
+    font-size: 22px;
+  }
+  
+  .benefit-item p {
+    color: #555;
+    line-height: 1.6;
+    font-size: 18px;
+  }
+  
+  .extra-info {
+    margin-top: 40px;
+    background-color: #ffeef2;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: right;
+    direction: rtl;
+  }
+  
+  .extra-info h3 {
+    color: #d45b78;
+    margin-bottom: 15px;
+    text-align: center;
+    font-size: 35px;
+  }
+  
+  .extra-info ul {
+    list-style: "💗 ";
+    padding-right: 25px;
+  }
+  
+  .extra-info li {
+    color: #555;
+    margin-bottom: 10px;
+    line-height: 1.6;
+    font-size: 20px;
+  }
+  
+  /* الزر */
+  .benefits-btn {
+    background-color: #d45b78;
+    color: white;
+    padding: 14px 35px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease;
+    display: inline-block;
+    margin-top: 40px;
+  }
+  
+  .benefits-btn:hover {
+    background-color: #b84865;
+  }
+
+  /* ========== سكشن آراء العملاء ========== */
+.testimonials {
+    background-color: #fff9fa;
+    padding: 80px 20px;
+    font-family: 'Cairo', sans-serif;
+    text-align: center;
+  }
+  
+  .testimonials-container {
+    max-width: 900px;
+    direction: rtl;
+    margin: 0 auto;
+  }
+  
+  .testimonials h2 {
+    font-size: 65px;
+    color: #d45b78;
+    margin-bottom: 10px;
+  }
+  
+  .testimonials h2 span {
+    color: #ff80a5;
+  }
+  
+  .testimonials .intro {
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    font-size: 22px;
+  }
+  
+  /* الكاروسيل */
+  .testimonial-carousel {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    height: 400px;
+    border-radius: 20px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+    background-color: #fff;
+  }
+  
+  .testimonial-slide {
+    display: none;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .testimonial-slide.active {
+    display: block;
+    animation: fadeSlide 1s ease;
+  }
+  
+  .testimonial-slide img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 20px;
+  }
+  
+  /* النقاط */
+  .carousel-controls {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+  }
+  
+  .carousel-controls .dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #ffc2d0;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .carousel-controls .dot.active {
+    background-color: #d45b78;
+  }
+  
+  @keyframes fadeSlide {
+    from { opacity: 0; transform: scale(0.98); }
+    to { opacity: 1; transform: scale(1); }
+  }
+
+
+  /* ========== سكشن لمن لا يناسب ولمن يناسب ========== */
+.fit-section {
+    background-color: #fff3f5;
+    padding: 80px 20px;
+    font-family: 'Cairo', sans-serif;
+    text-align: center;
+    direction: rtl;
+  }
+  
+  .fit-container {
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .fit-section h2 {
+    font-size: 65px;
+    color: #d45b78;
+    margin-bottom: 10px;
+  }
+  
+  .fit-section .intro {
+    color: #555;
+    margin-bottom: 50px;
+    line-height: 1.7;
+    font-size: 22px;
+  }
+  
+  .fit-columns {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .fit-box {
+    flex: 1;
+    min-width: 280px;
+    background-color: #ffffff;
+    border-radius: 20px;
+    padding: 30px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+    text-align: right;
+    direction: rtl;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .fit-box:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.08);
+  }
+  
+  .fit-box h3 {
+    font-size: 22px;
+    margin-bottom: 20px;
+    text-align: center;
+  }
+  
+  .fit-box.not-fit h3 {
+    color: #b84865;
+  }
+  
+  .fit-box.fit h3 {
+    color: #17b87d;
+  }
+  
+  .fit-box ul {
+    list-style: none;
+    padding: 0;
+  }
+  
+  .fit-box li {
+    margin-bottom: 10px;
+    line-height: 1.6;
+    color: #555;
+    position: relative;
+    font-size: 17px;
+    padding-right: 25px;
+  }
+  
+  .fit-box.not-fit li::before {
+    content: "❌";
+    position: absolute;
+    right: 0;
+    color: #d45b78;
+  }
+  
+  .fit-box.fit li::before {
+    content: "✅";
+    position: absolute;
+    right: 0;
+    color: #17b87d;
+  }
+  
+  /* الزر */
+  .fit-btn {
+    display: inline-block;
+    margin-top: 50px;
+    background-color: #d45b78;
+    color: white;
+    padding: 14px 40px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .fit-btn:hover {
+    background-color: #b84865;
+    transform: translateY(-3px);
+  }
+
+
+
+  /* ========== سكشن عني ========== */
+.about {
+    background: linear-gradient(135deg, #fff8f9, #fff3f5);
+    padding: 100px 20px;
+    font-family: 'Cairo', sans-serif;
+  }
+  
+  .about-container {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+  }
+  
+  .about h2 {
+    font-size: 65px;
+    color: #d45b78;
+    margin-bottom: 50px;
+    direction: rtl;
+
+  }
+  
+  .about-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 40px;
+
+  }
+  
+  /* الصورة */
+  .about-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+  }
+  
+  .about-image img {
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 5px solid #f8c8d4;
+    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease;
+  }
+  
+  .about-image img:hover {
+    transform: scale(1.05);
+  }
+  
+  /* النص */
+  .about-text {
+    flex: 2;
+    text-align: right;
+    direction: rtl;
+    color: #444;
+    direction: rtl;
+
+  }
+  
+  .about-text h3 {
+    font-size: 65px;
+    color: #d45b78;
+    margin-bottom: 20px;
+  }
+  
+  .about-text h3 span {
+    color: #ff80a5;
+    font-weight: 700;
+  }
+  
+  .about-text p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 22px;
+  }
+  
+  .about-text .message {
+    margin-top: 25px;
+    font-weight: 600;
+    color: #b84865;
+  }
+  
+  /* زر واتساب */
+  .whatsapp-btn {
+    display: inline-block;
+    background-color: #25D366;
+    color: white;
+    padding: 12px 28px;
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background 0.3s ease, transform 0.3s ease;
+  }
+  
+  .whatsapp-btn:hover {
+    background-color: #1ebe5b;
+    transform: translateY(-3px);
+  }
+
+  /* ========== CTA Section ========== */
+.cta {
+    background: linear-gradient(135deg, #fff0f4, #ffe6ec);
+    padding: 100px 20px;
+    direction: rtl;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+  }
+  
+  .cta-container {
+    max-width: 800px;
+    margin: 0 auto;
+    color: #444;
+  }
+  
+  .cta h2 {
+    font-size: 65px;
+    color: #d45b78;
+    margin-bottom: 20px;
+    line-height: 1.5;
+  }
+  
+  .cta p {
+    font-size: 30px;
+    line-height: 1.7;
+    margin-bottom: 20px;
+  }
+  
+  /* صندوق العرض */
+  .offer-box {
+    background: #fff;
+    border: 2px dashed #d45b78;
+    border-radius: 12px;
+    padding: 25px;
+    margin: 30px auto;
+    max-width: 400px;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+  }
+  
+  .price-text {
+    font-size: 1.1rem;
+    color: #b84865;
+    font-weight: 600;
+    margin-bottom: 10px;
+  }
+  
+  .price {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #d45b78;
+    margin-bottom: 5px;
+  }
+  
+  .old-price {
+    text-decoration: line-through;
+    color: #aaa;
+    margin-right: 10px;
+    font-size: 1.2rem;
+  }
+  
+  .new-price {
+    color: #d45b78;
+    font-size: 1.8rem;
+  }
+  
+  .note {
+    color: #666;
+    font-size: 1rem;
+    margin-top: 10px;
+  }
+  
+  /* زر */
+  .cta-btn {
+    display: inline-block;
+    background-color: #d45b78;
+    color: white;
+    padding: 14px 40px;
+    border-radius: 35px;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+  }
+  
+  .cta-btn:hover {
+    background-color: #b84865;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(212, 91, 120, 0.3);
+  }
+  
+  /* ملاحظات */
+  .small-note {
+    font-size: 0.95rem;
+    color: #777;
+    margin-top: 25px;
+  }
+  
+
+  /* ========== سكشن التواصل ========== */
+.contact-links {
+    background: linear-gradient(135deg, #fff5f7, #fff0f4);
+    padding: 80px 20px;
+    padding-bottom: 20px;
+    text-align: center;
+    direction: rtl;
+    font-family: 'Cairo', sans-serif;
+  }
+  
+  .contact-container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .contact-links h2 {
+    font-size: 1.8rem;
+    color: #d45b78;
+    margin-bottom: 15px;
+  }
+  
+  .contact-links p {
+    color: #555;
+    margin-bottom: 35px;
+    font-size: 1.1rem;
+  }
+  
+  .social-icons {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+  }
+  
+  .social-link {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .social-link img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 10px;
+    transition: transform 0.3s ease;
+  }
+  
+  .social-link span {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #444;
+  }
+  
+  /* تأثير hover */
+  .social-link:hover img {
+    transform: scale(1.1);
+  }
+  
+  .social-link.instagram:hover span {
+    color: #d45b78;
+  }
+  
+  .social-link.whatsapp:hover span {
+    color: #25D366;
+  }
+
+
+  /* ========== Footer ========== */
+.footer {
+    background: linear-gradient(135deg, #fff3f5, #ffeef2);
+    padding: 30px 15px;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+    border-top: 1px solid #f3d6dc;
+    direction: rtl;
+  }
+  
+  .footer-container p {
+    font-size: 1rem;
+    color: #555;
+    margin: 0;
+  }
+  
+  .footer .mada {
+    color: #d45b78;
+    font-weight: 700;
+    transition: color 0.3s ease;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  .footer .mada:hover {
+    color: #b84865;
+    text-shadow: 0 0 6px rgba(212, 91, 120, 0.3);
+  }
+  .footer a{
+    text-decoration: none;
+  }
+  
+/* ========== موبايل ========== */
+@media (max-width: 768px) {
+/* زر المنيو */
+.header .container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: padding 0.4s ease;
+  }
+.menu-toggle {
+    display: block;
+    z-index: 1100; /* يخليه فوق كل شي */
+  }
+  
+  /* القائمة المنسدلة */
+  .nav {
+    position: absolute;
+    top: 100%; /* بدل 65px حتى تبدأ مباشرة أسفل الهيدر */
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 0.4s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 1000;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05); /* ظل خفيف يعطي انفصال أنيق */
+    border-top: none; /* إزالة الخط اللي كان يسبب مشكلة */
+  }
+  
+  /* العناصر داخل المنيو */
+  .nav ul {
+    flex-direction: column;
+    width: 100%;
+    font-family: 'Cairo', sans-serif;
+    padding: 0;
+    margin: 0;
+  }
+  
+  .nav ul li {
+    width: 100%;
+    text-align: center;
+    padding: 12px 10px;
+    font-family: 'Cairo', sans-serif;
+    border-bottom: 1px solid #f8e4ea;
+  }
+  
+  .nav ul li:last-child {
+    border-bottom: none; /* يشيل الخط الأخير */
+  }
+  
+  /* لما تتفعل المنيو */
+  .nav.active {
+    max-height: 720px;
+    border-radius: 0 0 12px 12px; /* حواف خفيفة للأسفل */
+  }
+  
+  /* حركة العناصر */
+  .nav ul li {
+    opacity: 0;
+    transform: translateY(-10px);
+    transition: opacity 0.4s ease, transform 0.4s ease;
+  }
+  
+  .nav.active ul li {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  /* تأخير بسيط لإظهار كل عنصر بتتابع */
+  .nav.active ul li:nth-child(1) { transition-delay: 0.05s; }
+  .nav.active ul li:nth-child(2) { transition-delay: 0.1s; }
+  .nav.active ul li:nth-child(3) { transition-delay: 0.15s; }
+  .nav.active ul li:nth-child(4) { transition-delay: 0.2s; }
+  .nav.active ul li:nth-child(5) { transition-delay: 0.25s; }
+  .nav.active ul li:nth-child(6) { transition-delay: 0.3s; }
+
+  
+  /* الهيرو على الموبايل */
+  .hero {
+    padding: 150px 20px;
+  }
+
+  .hero-content {
+    flex-direction: column;
+    align-items: center;
+    gap: 30px;
+    text-align: center;
+    font-family: 'Cairo', sans-serif;
+
+  }
+
+  .hero-text {
+    text-align: center;
+    padding-left: 0;
+    font-family: 'Cairo', sans-serif;
+
+    width: 100%;
+  }
+
+  .hero-text h1 {
+    font-size: 38px;
+    width: 100%;
+    font-family: 'Cairo', sans-serif;
+
+  }
+
+    
+  .ps-text h2 {
+    color: #d45b78;
+    font-size: 35px;
+    margin-bottom: 20px;
+  }
+  .ps-text h2 span {
+    color: #ff80a5;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+  
+  }
+  .ps-text p span {
+    color: #d45b78;
+    font-weight: bold;
+    font-family: 'Cairo', sans-serif;
+  
+  }
+  
+  .ps-text p {
+    line-height: 1.7;
+    color: #555;
+    margin-bottom: 20px;
+    font-size: 20px;
+  }
+  .hero-text p {
+    font-size: 20px;
+    font-family: 'Cairo', sans-serif;
+    font-weight: 300;
+
+  }
+
+  .hero-image img {
+    width: 400px;
+    border-radius: 50%;
+  }
+
+
+  .ps-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .ps-images img {
+    width: 80%;
+  }
+
+  .ps-text {
+    text-align: center;
+  }
+
+  .ps-text ul {
+    list-style: none;
+    padding: 0;
+    list-style: "🌸 ";
+    padding-right: 35px;
+
+  }
+
+  .benefit-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+
+    
+  .benefits h2 {
+    font-size:35px;
+    color: #d45b78;
+    margin-bottom: 15px;
+  }
+  
+  .benefits h2 span {
+    color: #ff80a5;
+  }
+  
+  .benefits .intro {
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    font-size: 20px;
+  }
+
+  .benefit-item .num {
+    margin-bottom: 10px;
+  }
+
+  .extra-info {
+    text-align: center;
+  }
+
+  .extra-info ul {
+
+    list-style: none;
+    gap: 15px;
+  }
+  .extra-info li{
+    padding: 20px;
+    background-color: #ffffff;
+    border-radius: 15px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+    margin-bottom: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    direction: rtl;
+    text-align: right;
+    font-size: 20px;
+  }
+  .testimonial-carousel {
+    height: 320px;
+  }
+  .testimonials h2 {
+    font-size: 35px;
+    color: #d45b78;
+    margin-bottom: 10px;
+  }
+  
+  .testimonials h2 span {
+    color: #ff80a5;
+  }
+  
+  .testimonials .intro {
+    color: #555;
+    margin-bottom: 40px;
+    line-height: 1.7;
+    font-size: 20px;
+  }
+
+  .fit-columns {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .fit-box {
+    width: 100%;
+    text-align: center;
+  }
+
+  .fit-box ul {
+    padding: 0;
+  }
+
+  .fit-box li {
+    padding-right: 0;
+  }
+  .fit-section h2 {
+    font-size: 35px;
+    color: #d45b78;
+    margin-bottom: 10px;
+  }
+  
+  .fit-section .intro {
+    color: #555;
+    margin-bottom: 50px;
+    line-height: 1.7;
+    font-size: 20px;
+  }
+
+  .about-content {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .about-text {
+    text-align: center;
+  }
+
+  .about-image img {
+    width: 230px;
+    height: 230px;
+  }
+  .about-text h3 {
+    font-size: 35px;
+    color: #d45b78;
+    margin-bottom: 20px;
+  }
+  .about h2 {
+    font-size: 35px;
+    color: #d45b78;
+    margin-bottom: 50px;
+    direction: rtl;
+
+  }
+  
+  .about-text h3 span {
+    color: #ff80a5;
+    font-weight: 700;
+  }
+  
+  .about-text p {
+    line-height: 1.8;
+    margin-bottom: 15px;
+    font-size: 20px;
+  }
+  
+
+  
+  .cta h2 {
+    font-size: 35px;
+  }
+
+  .cta p {
+    font-size: 20px;
+  }
+  .cta-btn {
+    width: 90%;
+    font-size: 18px;
+  }
+
+  .offer-box {
+    padding: 20px;
+  }
+
+  .social-icons {
+    gap: 25px;
+  }
+
+  .social-link img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .contact-links h2 {
+    font-size: 1.5rem;
+  }
+
+  
+}
+@supports (-webkit-touch-callout: none) {
+    /* معالجة مشكلة الارتفاع في Safari */
+    .hero,
+    section,
+    .fit-section,
+    .benefits,
+    .about,
+    .cta,
+    .contact-links {
+      min-height: 100dvh;
+      background-attachment: scroll;
+      -webkit-transform: translateZ(0);
+    }
+  
+    /* تحسين عرض الصور على iPhone */
+    img {
+      max-width: 100%;
+      height: auto;
+      display: block;
+      border-radius: inherit;
+      -webkit-user-drag: none;
+      -webkit-touch-callout: none;
+    }
+  
+    /* تحسين التحريك (AOS أو أنيميشنات الخلفية) */
+    [data-aos],
+    .hero::before {
+      -webkit-transform: translateZ(0);
+      will-change: transform, opacity;
+    }
+  
+    /* تصحيح مشكلة overflow في fixed elements */
+    .header,
+    .nav {
+      -webkit-overflow-scrolling: touch;
+    }
+  
+    /* تحسين الخطوط */
+    body {
+      -webkit-text-size-adjust: 100%;
+    }
+  }
+  
+  /* ✅ إصلاح عام لتداخل الـ vh في أجهزة iPhone القديمة */
+  :root {
+    --vh: 1vh;
+  }
+  @media screen and (max-width: 768px) {
+    .hero {
+      min-height: calc(var(--vh, 1vh) * 100);
+    }
+  }
+
