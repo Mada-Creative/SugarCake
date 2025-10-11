@@ -100,9 +100,8 @@
     <p>تم تسجيلك بنجاح 💌<br>يمكنك الآن الدخول إلى صفحة الورشة والبدء بالتعلّم مباشرة من خلال الزر أدناه 👇</p>
 
     <!-- رابط الورشة -->
-    <a href="https://t.me/+ZAOz452K7FlhOGQ8" target="_blank" class="workshop-btn">
-      دخول إلى الورشة 🎂
-    </a>
+    <a href="#" class="workshop-btn" id="enterWorkshop">دخول إلى الورشة 🎂</a>
+
 
     <!-- تحذير قانوني -->
     <div class="legal-warning">
@@ -118,4 +117,21 @@
     </div>
   </div>
 </body>
+<script>
+    const btn = document.getElementById("enterWorkshop");
+    btn.addEventListener("click", (e) => {
+      e.preventDefault();
+      // افتح الورشة في تبويب جديد
+      window.open("https://t.me/sugarcake_workshop", "_blank");
+      // بعد ثانيتين، امسح الصفحة الحالية
+      setTimeout(() => {
+        document.body.innerHTML = `
+          <div style="font-family:'Cairo',sans-serif;display:flex;align-items:center;justify-content:center;height:100vh;text-align:center;color:#d45b78;font-size:1.2rem;">
+            ⛔ تم فتح الورشة بنجاح. هذه الصفحة لم تعد صالحة للاستخدام.
+          </div>`;
+        history.replaceState(null, "", "expired.html");
+      }, 1500);
+    });
+  </script>
+  
 </html>
