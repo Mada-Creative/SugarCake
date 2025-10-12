@@ -398,6 +398,12 @@ body {
     text-align: right;
     direction: rtl;
   }
+
+  .extra-info span{
+    color: #d45b78;
+    font-weight: 900;
+    text-decoration:line-through;
+  }
   
   .extra-info h3 {
     color: #d45b78;
