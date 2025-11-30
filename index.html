@@ -340,16 +340,28 @@
             الورشة أونلاين ومناسبة حتى للمبتدئات، وكل الشرح بالعربية بطريقة ممتعة وسهلة 👩🏻‍🍳
           </p>
           <div class="offer-box" data-aos="fade-up">
+
+            <label for="currency" class="currency-label">اختيار العملة:</label>
+            <select id="currency" class="currency-select">
+              <option value="ILS">شيكل ₪</option>
+              <option value="USD">دولار $</option>
+              <option value="EUR">يورو €</option>
+            </select>
+          
             <p class="price-text">
               💝 <strong>عرض خاص لفترة محدودة!</strong>
             </p>
+          
             <p class="price">
               <span class="old-price">₪1400</span>
               <span class="new-price">₪799 فقط!</span>
             </p>
+          
             <p class="note">وفرّي أكثر من 40% وابدئي رحلتك اليوم ✨</p>
+          
           </div>
-      
+          
+          
           <a target="_blank" href="https://pay.grow.link/1d415e998a2829eb05aa050ed8380100-MjU4MTM0Mw" class="cta-btn">
             اشتركي الآن واحصلي على العرض
           </a>
@@ -386,7 +398,82 @@
           <p>تم التصميم والتطوير على يد <a href="https://www.instagram.com/madabytarek/" target="_blank"><span class="mada">MadabyTarek</span></a> 💻</p>
         </div>
       </footer>
+      
     <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
     <script src="script.js"></script>
+    <script>
+      document.addEventListener("DOMContentLoaded", async function () {
+      
+        const oldPriceILS = 1400;
+        const newPriceILS = 799;
+      
+        const oldPriceEl = document.querySelector(".old-price");
+        const newPriceEl = document.querySelector(".new-price");
+        const currencySelector = document.getElementById("currency");
+      
+        const symbols = { ILS: "₪", USD: "$", EUR: "€" };
+      
+        async function updatePrices(currency) {
+      
+          // ❗إذا رجعنا للشيكل — رجّع الأسعار الأصلية فورًا
+          if (currency === "ILS") {
+            oldPriceEl.textContent = "₪" + oldPriceILS;
+            newPriceEl.textContent = "₪" + newPriceILS + " فقط!";
+            return;
+          }
+      
+          try {
+            const res = await fetch(`https://api.frankfurter.app/latest?amount=1&from=ILS&to=${currency}`);
+            const data = await res.json();
+      
+            const rate = data.rates[currency];
+      
+            oldPriceEl.textContent = symbols[currency] + (oldPriceILS * rate).toFixed(2);
+            newPriceEl.textContent = symbols[currency] + (newPriceILS * rate).toFixed(2) + " فقط!";
+          } catch (e) {
+            console.log("Error fetching:", e);
+          }
+        }
+      
+        // أول تحميل
+
+        // كشف دولة الزائر وتحديد العملة تلقائيًا
+async function detectCurrency() {
+  try {
+    const res = await fetch("https://ipapi.co/json/");
+    const data = await res.json();
+
+    const country = data.country;   // مثال: IL, FR, DE, US
+    const euCountries = ["FR","DE","IT","ES","NL","BE","SE","DK","FI","AT","PT","PL","CZ","GR","IE","HU","RO","BG","HR","SK","SI","EE","LV","LT","LU","CY","MT"];
+
+    if (euCountries.includes(country)) {
+      return "EUR";
+    }
+
+    if (country === "US" || country === "CA") {
+      return "USD";
+    }
+
+    return "ILS";  // افتراضي
+  } catch (e) {
+    console.log("Location detection error:", e);
+    return "ILS"; 
+  }
+}
+
+const detected = await detectCurrency();
+currencySelector.value = detected;
+updatePrices(detected);
+      
+        currencySelector.addEventListener("change", () => {
+          updatePrices(currencySelector.value);
+        });
+      
+      });
+      </script>
+      
+      
+      
+      
 </body>
 </html>

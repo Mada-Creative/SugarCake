@@ -55,3 +55,40 @@ dots.forEach((dot, i) => {
 });
 
 setInterval(nextSlide, 3000); // ⏳ تغيير كل 4 ثوانٍ
+
+// const oldPriceILS = 1400;
+// const newPriceILS = 799;
+
+// const oldPriceEl = document.querySelector(".old-price");
+// const newPriceEl = document.querySelector(".new-price");
+// const currencySelector = document.getElementById("currency");
+
+// async function updatePrices(currency) {
+//   try {
+//     const res = await fetch("https://api.exchangerate.host/latest?base=ILS");
+//     const data = await res.json();
+//     const rate = data.rates[currency];
+
+//     const symbols = {
+//       ILS: "₪",
+//       USD: "$",
+//       EUR: "€",
+//     };
+
+//     const convertedOld = (oldPriceILS * rate).toFixed(2);
+//     const convertedNew = (newPriceILS * rate).toFixed(2);
+
+//     oldPriceEl.textContent = symbols[currency] + convertedOld;
+//     newPriceEl.textContent = symbols[currency] + convertedNew + " فقط!";
+//   } catch (error) {
+//     console.log("خطأ في جلب سعر الصرف:", error);
+//   }
+// }
+
+// // عرض أولي
+// updatePrices("ILS");
+
+// // تغيير العملة
+// currencySelector.addEventListener("change", (e) => {
+//   updatePrices(e.target.value);
+// });
