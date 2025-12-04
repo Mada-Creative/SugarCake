@@ -163,14 +163,14 @@ body {
   color: #d45b78;
   margin-bottom: 15px;
   line-height: 1.4;
-  
+  font-weight: 100;
   font-family: 'Cairo', sans-serif;
 
 }
 
 .hero-text h1 span {
   color: #ff80a5;
-  font-weight: bold;
+  font-weight: 900;
   font-family: 'Cairo', sans-serif;
 
 }
@@ -1222,7 +1222,8 @@ body {
   }
 
   .fit-box li {
-    padding-right: 0;
+    padding-right: 20px;
+    text-align: right;
   }
   .fit-section h2 {
     font-size: 35px;
