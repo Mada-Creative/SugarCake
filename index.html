@@ -72,7 +72,18 @@
             </div>
             
             <div class="hero-image" data-aos="zoom-in">
-                <img src="sugarc.png" alt="مدربة دورة الكعك">
+              <video
+  class="hero-video"
+  autoplay
+  loop
+  playsinline
+  preload="auto"
+>
+  <source src="123.mp4" type="video/mp4">
+  <source src="videos/cake.webm" type="video/webm">
+  المتصفح لا يدعم تشغيل الفيديو
+</video>
+                <!-- <img src="sugarc.png" alt="مدربة دورة الكعك"> -->
             </div>
         </div>
       </section>
@@ -127,7 +138,19 @@
             <div>
               <h3>خَبز الكعك (فانيليا وشوكولاتة)</h3>
               <p>رح تتعلمي كيف تجهزي كعكه هشه ومرتفعه وكثير لذيذه بدون ما تهبط ابدًا.</p>
-              <img class="Cakes" src="كعك رغد ١.png" alt="كعكة عالية واطية">
+              <!-- <img class="Cakes" src="كعك رغد ١.png" alt="كعكة عالية واطية"> -->
+<video
+  class="hero-video"
+  autoplay
+  loop
+  muted
+  playsinline
+  preload="auto"
+>
+  <source src="WhatsApp Video 2025-12-23 at 12.31.34.mp4" type="video/mp4">
+  <source src="videos/cake.webm" type="video/webm">
+  المتصفح لا يدعم تشغيل الفيديو
+</video>
 
             </div>
           </div>
@@ -137,8 +160,19 @@
             <div>
               <h3>تحضير حشوة موس بلجيكي</h3>
               <p>رح تتعلمي وصفات موس ناعمة وغنية، مثل موس الشوكولاتة بطعمات.</p>
-              <img class="Cakes" src="حشوات٢.png" alt="كعكة عالية واطية">
-
+              <!-- <img class="Cakes" src="حشوات٢.png" alt="كعكة عالية واطية"> -->
+<video
+  class="hero-video"
+  autoplay
+  loop
+  muted
+  playsinline
+  preload="auto"
+>
+  <source src="WhatsApp Video 2025-12-23 at 12.31.36.mp4" type="video/mp4">
+  <source src="videos/cake.webm" type="video/webm">
+  المتصفح لا يدعم تشغيل الفيديو
+</video>
             </div>
           </div>
       
@@ -148,8 +182,19 @@
               <h3>تغليف سحري 🎨</h3>
               <p>رح تتعلمي تغليف الكعكة بجناش الشوكلاطة البيضاء والبنية وبكل الالوان وبحواف حادة. <br>
                 تشمل 4 انواع تغليف.</p>
-              <img class="Cakes" src="تغليف سحري.png" alt="كعكة عالية واطية">
-
+              <!-- <img class="Cakes" src="تغليف سحري.png" alt="كعكة عالية واطية"> -->
+<video
+  class="hero-video"
+  autoplay
+  loop
+  muted
+  playsinline
+  preload="auto"
+>
+  <source src="تغليف سحري.mp4" type="video/mp4">
+  <source src="videos/cake.webm" type="video/webm">
+  المتصفح لا يدعم تشغيل الفيديو
+</video>
             </div>
           </div>
       
@@ -167,8 +212,19 @@
             <div>
               <h3>تغليف الكعكة بعجينة السكر</h3>
               <p>رح تتعلمي كيف تغلفي الكعك بعجينة السكر بطريقتين، تناسب كعك حتى 20 سم.</p>
-              <img class="Cakes" src="٢٠سم.png" alt="كعكة عالية واطية">
-
+              <!-- <img class="Cakes" src="٢٠سم.png" alt="كعكة عالية واطية"> -->
+<video
+  class="hero-video"
+  autoplay
+  loop
+  muted
+  playsinline
+  preload="auto"
+>
+  <source src="WhatsApp Video 2025-12-23 at 12.31.38.mp4" type="video/mp4">
+  <source src="videos/cake.webm" type="video/webm">
+  المتصفح لا يدعم تشغيل الفيديو
+</video>
             </div>
           </div>
     
@@ -484,7 +540,17 @@ updatePrices(detected);
       
       });
       </script>
-      
+      <script>
+  document.addEventListener("DOMContentLoaded", () => {
+    const video = document.querySelector(".hero-video");
+    if (video) {
+      video.play().catch(() => {
+        // تجاهل الخطأ — المتصفح سيشغله تلقائيًا عند أول تفاعل
+      });
+    }
+  });
+</script>
+
       
       
       
